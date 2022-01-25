@@ -16,9 +16,14 @@
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
+        android:label=""
         android:name="com.petros.github.ui.views.DetailsFragment"
-        android:label="fragment_details"
         tools:layout="@layout/fragment_details" >
+
+        <argument
+            android:name="repository"
+            app:argType="com.petros.github.data.model.Repository" />
+
         <action
             android:id="@+id/action_detailsFragment_to_homeFragment"
             app:destination="@id/homeFragment" />

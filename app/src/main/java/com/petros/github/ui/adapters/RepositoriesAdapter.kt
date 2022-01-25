@@ -43,11 +43,8 @@ class RepositoriesAdapter(
     override fun getItemCount(): Int = repositories.size
 
     fun addRepositories(list: List<Repository>) {
-        repositories.addAll(list)
-        notifyDataSetChanged()
-    }
-    fun clearRepositories() {
         repositories.clear()
+        repositories.addAll(list)
         notifyDataSetChanged()
     }
 }

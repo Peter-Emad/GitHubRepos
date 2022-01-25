@@ -13,6 +13,7 @@
         <!-- Status bar color. -->
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
         <item name="android:statusBarColor">@android:color/white</item>
+        <item name="android:homeAsUpIndicator">@drawable/ic_arrow_back</item>
     </style>
 
     <style name="Theme.CustomSplashScreenTheme" parent="Theme.SplashScreen">
@@ -65,6 +66,28 @@
     <style name="Home.Search.Content.State.Repo.Count" parent="Widget.AppCompat.TextView">
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/manatee</item>
+        <item name="fontFamily">sans-serif</item>
+    </style>
+
+
+
+    <style name="Home.Repo.Details.Full.Name" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/petrol</item>
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+
+
+    <style name="Home.Repo.Details.Language" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/manatee</item>
+        <item name="fontFamily">sans-serif</item>
+    </style>
+
+
+    <style name="Home.Repo.Details.Grid.Text" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/petrol</item>
         <item name="fontFamily">sans-serif</item>
     </style>
 </resources>

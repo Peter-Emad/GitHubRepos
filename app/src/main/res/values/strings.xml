@@ -10,4 +10,8 @@
         <item quantity="one">%d result</item>
         <item quantity="other">%d results</item>
     </plurals>
+    <string name="details_grid_forks">Forks</string>
+    <string name="details_grid_starred">Starred by</string>
+    <string name="details_grid_issues">Issues</string>
+
 </resources>

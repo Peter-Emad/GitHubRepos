@@ -3,6 +3,7 @@ package com.petros.github.ui.viewmodels
 import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.petros.github.data.model.Repository
 import com.petros.github.data.model.SearchRepositoriesResponse
 import com.petros.github.data.repositories.HomeRepository
 import com.petros.github.ui.adapters.RepositoriesAdapter
@@ -14,7 +15,10 @@ const val LOADING_STATE_VIEW_FLIPPER_ID = 0
 const val EMPTY_STATE_VIEW_FLIPPER_ID = 1
 const val ERROR_STATE_VIEW_FLIPPER_ID = 2
 
-class HomeViewModel(private val homeRepository: HomeRepository) : ViewModel() {
+class HomeViewModel(
+    private val homeRepository: HomeRepository,
+    private val onNavigateToDetailsScreen: (Repository) -> Unit
+) : ViewModel() {
     private lateinit var repositoriesAdapter: RepositoriesAdapter
 
     val showContent = ObservableField(false)
@@ -29,6 +33,8 @@ class HomeViewModel(private val homeRepository: HomeRepository) : ViewModel() {
     val onNewQueryPushed: (String?) -> Unit = { newQuery ->
         if (isValidQuery(newQuery))
             searchRepos(newQuery!!)
+        else
+            updateScreenState(ScreenState.EMPTY_STATE)
     }
 
     private fun isValidQuery(newQuery: String?): Boolean {
@@ -39,7 +45,6 @@ class HomeViewModel(private val homeRepository: HomeRepository) : ViewModel() {
         viewModelScope.launch {
             updateScreenState(ScreenState.LOADING_STATE)
             try {
-                repositoriesAdapter.clearRepositories()
                 handleSearchResponse(homeRepository.searchRepos(query))
             } catch (e: Exception) {
                 updateScreenState(ScreenState.ERROR_STATE)
@@ -64,7 +69,7 @@ class HomeViewModel(private val homeRepository: HomeRepository) : ViewModel() {
     private fun setRecyclerAdapter() {
         repositoriesAdapter =
             RepositoriesAdapter(repositories = arrayListOf(), onRepositoryClick = { repo ->
-
+                onNavigateToDetailsScreen(repo)
             })
         rvAdapter.set(repositoriesAdapter)
     }

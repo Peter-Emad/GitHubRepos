@@ -3,6 +3,7 @@ package com.petros.github.ui.utils
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.ViewFlipper
 import androidx.appcompat.widget.AppCompatEditText
@@ -43,5 +44,12 @@ internal fun RecyclerView.bindAdapter(repositoriesAdapter: RepositoriesAdapter?)
 internal fun TextView.bindResultsCount(resultsCount: Int?) {
     resultsCount?.let { safeCount ->
         text = context.resources.getQuantityString(R.plurals.search_results_count, safeCount, safeCount)
+    }
+}
+
+@BindingAdapter("loadImage")
+internal fun ImageView.bindLoadImage(url: String?) {
+    url?.let { safeUrl ->
+        loadUrl(safeUrl)
     }
 }

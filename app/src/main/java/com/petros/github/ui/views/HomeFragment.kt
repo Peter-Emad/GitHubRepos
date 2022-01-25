@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.petros.github.data.api.RetrofitBuilder
 import com.petros.github.databinding.FragmentHomeBinding
 import com.petros.github.ui.utils.HomeViewModelFactory
@@ -31,8 +32,14 @@ class HomeFragment : Fragment() {
         homeViewModel =
             ViewModelProvider(
                 this,
-                HomeViewModelFactory(RetrofitBuilder.apiService)
+                HomeViewModelFactory(apiService = RetrofitBuilder.apiService,
+                    onNavigateToDetailsScreen = { repository ->
+                        findNavController().navigate(
+                            HomeFragmentDirections.actionHomeFragmentToDetailsFragment(
+                                repository
+                            )
+                        )
+                    })
             ).get(HomeViewModel::class.java)
     }
-
 }
