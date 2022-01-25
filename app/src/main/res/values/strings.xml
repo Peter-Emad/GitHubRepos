@@ -6,4 +6,8 @@
     <string name="search_for_repository">Search for repository</string>
     <string name="empty_state_title">A little empty</string>
     <string name="empty_state_subtitle">Search for a repository and \nsave it as favourite</string>
+    <plurals name="search_results_count">
+        <item quantity="one">%d result</item>
+        <item quantity="other">%d results</item>
+    </plurals>
 </resources>

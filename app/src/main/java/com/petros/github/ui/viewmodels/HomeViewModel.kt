@@ -20,7 +20,7 @@ class HomeViewModel(private val homeRepository: HomeRepository) : ViewModel() {
     val showContent = ObservableField(false)
     val rvAdapter: ObservableField<RepositoriesAdapter> = ObservableField()
     val screenState = ObservableField(ScreenState.EMPTY_STATE)
-
+    val resultsCount: ObservableField<Int?> = ObservableField()
 
     init {
         setRecyclerAdapter()
@@ -55,6 +55,7 @@ class HomeViewModel(private val homeRepository: HomeRepository) : ViewModel() {
     private fun handleSearchResponse(searchRepos: SearchRepositoriesResponse) {
         if (searchRepos.total_count > 0) {
             updateScreenState(ScreenState.CONTENT_STATE)
+            resultsCount.set(searchRepos.total_count)
             repositoriesAdapter.addRepositories(searchRepos.items)
         } else
             screenState.set(ScreenState.EMPTY_STATE)
