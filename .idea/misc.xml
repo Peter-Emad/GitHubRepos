@@ -7,9 +7,15 @@
         <entry key="app/src/main/res/drawable/ic_baseline_access_alarm_24.xml" value="0.203125" />
         <entry key="app/src/main/res/drawable/ic_logo.xml" value="0.203125" />
         <entry key="app/src/main/res/drawable/splash_background.xml" value="0.203125" />
+        <entry key="app/src/main/res/font/font_family_roboto.xml" value="0.31851851851851853" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.375" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.17291666666666666" />
+        <entry key="app/src/main/res/layout/empty_state_view.xml" value="0.3390625" />
+        <entry key="app/src/main/res/layout/error_view.xml" value="0.3390625" />
         <entry key="app/src/main/res/layout/fragment_details.xml" value="0.18697916666666667" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.3390625" />
+        <entry key="app/src/main/res/layout/item_repository.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/loading_view.xml" value="0.3390625" />
       </map>
     </option>
   </component>

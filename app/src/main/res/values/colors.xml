@@ -7,4 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="petrol">#333C52</color>
+    <color name="athens_gray">#F2F3F7</color>
+    <color name="manatee">#999DA8</color>
 </resources>
